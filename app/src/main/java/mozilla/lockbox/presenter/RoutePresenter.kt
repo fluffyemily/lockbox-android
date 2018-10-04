@@ -21,7 +21,7 @@ import mozilla.lockbox.view.LockedFragment
 import mozilla.lockbox.view.SettingFragment
 import mozilla.lockbox.view.WelcomeFragment
 
-class RoutePresenter(private val activity: AppCompatActivity, routeStore: RouteStore = RouteStore.shared) : Presenter() {
+class RoutePresenter(private val activity: AppCompatActivity, private val routeStore: RouteStore = RouteStore.shared) : Presenter() {
     private val welcome: WelcomeFragment by lazy { WelcomeFragment() }
     private val login: FxALoginFragment by lazy { FxALoginFragment() }
     private val itemList: ItemListFragment by lazy { ItemListFragment() }
@@ -29,12 +29,8 @@ class RoutePresenter(private val activity: AppCompatActivity, routeStore: RouteS
     private val lock: LockedFragment by lazy { LockedFragment() }
     private val itemDetail: ItemDetailFragment by lazy { ItemDetailFragment() }
 
-    init {
-        routeStore.routes.subscribe { a -> route(a) }.addTo(compositeDisposable)
-    }
-
     override fun onViewReady() {
-        replaceFragment(this.welcome, false)
+        routeStore.routes.subscribe(this::route).addTo(compositeDisposable)
     }
 
     private fun replaceFragment(frag: Fragment, backable: Boolean = true) {

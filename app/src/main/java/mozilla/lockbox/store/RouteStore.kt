@@ -6,6 +6,9 @@
 
 package mozilla.lockbox.store
 import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
+import io.reactivex.subjects.BehaviorSubject
 import mozilla.lockbox.action.RouteAction
 import mozilla.lockbox.extensions.filterByType
 import mozilla.lockbox.flux.Dispatcher
@@ -15,6 +18,17 @@ class RouteStore(dispatcher: Dispatcher = Dispatcher.shared) {
         val shared = RouteStore()
     }
 
-    val routes: Observable<RouteAction> = dispatcher.register
-            .filterByType(RouteAction::class.java)
+    val routes: Observable<RouteAction>
+
+    val compositeDisposable = CompositeDisposable()
+
+    init {
+        val subject = BehaviorSubject.createDefault<RouteAction>(RouteAction.Welcome)
+        routes = subject
+
+        dispatcher.register
+                .filterByType(RouteAction::class.java)
+                .subscribe(subject::onNext)
+                .addTo(compositeDisposable)
+    }
 }
