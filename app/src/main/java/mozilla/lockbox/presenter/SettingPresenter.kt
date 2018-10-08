@@ -8,9 +8,10 @@ package mozilla.lockbox.presenter
 
 import mozilla.lockbox.flux.Presenter
 
-interface SettingViewProtocol
+interface SettingView
 
-class SettingPresenter(view: SettingViewProtocol) : Presenter() {
+class SettingPresenter(view: SettingView) : Presenter() {
     override fun onViewReady() {
+
     }
 }

@@ -12,19 +12,13 @@
     tools:context=".view.SettingFragment">
 
     <include
+        android:id="@+id/backable_include"
         layout="@layout/include_backable" />
 
-    <TextView
-        android:id="@+id/settings_placeholder"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/settingList"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:text="@string/settings_go_here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/backable_include"/>
+
 </android.support.constraint.ConstraintLayout>
