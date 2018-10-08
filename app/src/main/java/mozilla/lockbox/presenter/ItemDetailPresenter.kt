@@ -19,7 +19,7 @@ interface ItemDetailView {
     var itemId: String?
     fun updateItem(item: ItemDetailViewModel)
 
-    val addressLayoutClicks: Observable<Unit>
+    val hostnameClicks: Observable<Unit>
 }
 
 class ItemDetailPresenter(
@@ -29,7 +29,7 @@ class ItemDetailPresenter(
 ) : Presenter() {
 
     override fun onViewReady() {
-        this.view.addressLayoutClicks
+        this.view.hostnameClicks
                 .subscribe {
                     view.itemId?.let {
                         dataStore.get(it)

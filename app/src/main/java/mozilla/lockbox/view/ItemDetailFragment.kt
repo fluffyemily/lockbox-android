@@ -39,8 +39,8 @@ class ItemDetailFragment : BackableFragment(), ItemDetailView {
         return view
     }
 
-    override val addressLayoutClicks: Observable<Unit>
-        get() = addressLayout!!.clicks()
+    override val hostnameClicks: Observable<Unit>
+        get() = view!!.inputHostname.clicks()
 
     override fun updateItem(item: ItemDetailViewModel) {
         toolbar.title = item.title
