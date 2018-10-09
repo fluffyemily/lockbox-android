@@ -35,7 +35,7 @@ class ItemDetailPresenter(
                         dataStore.get(it)
                                 .subscribe {
                                     if (it != null) {
-                                        dispatcher.dispatch(RouteAction.OpenApp(it.formSubmitURL!!))
+                                        dispatcher.dispatch(RouteAction.OpenWebsite(it.formSubmitURL!!))
                                     }
                                 }
                                 .addTo(compositeDisposable)

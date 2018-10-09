@@ -77,7 +77,7 @@ class RoutePresenter(private val activity: AppCompatActivity, routeStore: RouteS
                 itemDetail.itemId = action.id
                 replaceFragment(itemDetail)
             }
-            is RouteAction.OpenApp -> {
+            is RouteAction.OpenWebsite -> {
                 openWebsite(action.host)
             }
             is RouteAction.Back -> activity.supportFragmentManager.popBackStack()

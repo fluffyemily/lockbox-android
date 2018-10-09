@@ -13,47 +13,54 @@
 
     <include layout="@layout/include_backable" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputLayoutHostname"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent">
-        <EditText
-            android:id="@+id/inputHostname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_hostname"
-            android:inputType="none"
-            android:singleLine="true" />
-    </android.support.design.widget.TextInputLayout>
+        android:layout_height="match_parent"
+        android:padding="@dimen/fragment_general_padding">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputLayoutUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/inputLayoutHostname"
-        >
-        <EditText
-            android:id="@+id/inputUsername"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutHostname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_username"
-            android:inputType="none"
-            android:singleLine="true" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent">
+            <EditText
+                android:id="@+id/inputHostname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_hostname"
+                android:textColor="@color/blue60"
+                android:inputType="none"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputLayoutPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/inputLayoutUsername">
-        <EditText
-            android:id="@+id/inputPassword"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_password"
-            android:inputType="none|textPassword"
-            android:singleLine="true" />
-    </android.support.design.widget.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutHostname"
+            >
+            <EditText
+                android:id="@+id/inputUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_username"
+                android:inputType="none"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutUsername">
+            <EditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_password"
+                android:inputType="none|textPassword"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

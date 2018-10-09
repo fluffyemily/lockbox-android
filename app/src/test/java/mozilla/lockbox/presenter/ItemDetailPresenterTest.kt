@@ -23,10 +23,14 @@ class ItemDetailPresenterTest {
     class FakeView : ItemDetailView {
         override var itemId: String? = null
         var item: ItemDetailViewModel? = null
+        val tapStub:  PublishSubject<Unit> = PublishSubject.create<Unit>()
 
         override fun updateItem(item: ItemDetailViewModel) {
             this.item = item
         }
+
+        override val hostnameClicks: Observable<Unit>
+            get() = tapStub
     }
 
     class FakeDataStore : DataStore() {
